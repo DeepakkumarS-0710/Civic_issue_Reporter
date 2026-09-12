@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report an Issue</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f1ff, #f7f9fc);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            width: 100%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2% 5%;
+            text-align: center;
+            box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.2);
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .header p {
+            margin: 1% 0 0;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 70%;
+            margin: 4% auto;
+            background-color: white;
+            padding: 4%;
+            border-radius: 1.2em;
+            box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.12);
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 3%;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 3%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1%;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 1.5%;
+            border: 0.1em solid #ccd3dd;
+            border-radius: 0.6em;
+            font-size: 1em;
+            background-color: #f9fafc;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+            background-color: white;
+        }
+
+        textarea {
+            min-height: 12em;
+            resize: vertical;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .issue-types {
+            display: flex;
+            gap: 2%;
+            flex-wrap: wrap;
+        }
+
+        .issue-types option {
+            padding: 1%;
+        }
+
+        .file-box {
+            width: 100%;
+            padding: 2%;
+            border: 0.15em dashed #007bff;
+            border-radius: 0.7em;
+            background-color: #f0f6ff;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.5%;
+            border: none;
+            border-radius: 0.6em;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-0.1em);
+            box-shadow: 0 0.4em 1em rgba(0, 123, 255, 0.3);
+        }
+
+        .logout {
+            display: block;
+            width: 100%;
+            margin-top: 2%;
+            padding: 1.2%;
+            text-align: center;
+            text-decoration: none;
+            color: #dc3545;
+            font-weight: bold;
+            border: 0.1em solid #dc3545;
+            border-radius: 0.6em;
+            transition: 0.3s;
+        }
+
+        .logout:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        @media (max-width: 60em) {
+
+            .container {
+                width: 85%;
+                padding: 5%;
+            }
+
+            .header h2 {
+                font-size: 1.7em;
+            }
+
+            input[type="text"],
+            textarea,
+            select {
+                padding: 2%;
+            }
+
+            .submit-btn {
+                padding: 2%;
+            }
+        }
+
+        @media (max-width: 40em) {
+
+            .header {
+                padding: 5% 3%;
+            }
+
+            .header h2 {
+                font-size: 1.4em;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            .container {
+                width: 94%;
+                margin: 5% auto;
+                padding: 6%;
+                border-radius: 1em;
+            }
+
+            .section-title {
+                font-size: 1.3em;
+            }
+
+            input[type="text"],
+            textarea,
+            select {
+                padding: 3%;
+                font-size: 1em;
+            }
+
+            textarea {
+                min-height: 10em;
+            }
+
+            .submit-btn {
+                padding: 3%;
+            }
+
+            .logout {
+                padding: 2.5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>🚨 Report an Issue</h2>
+        <p>Help us identify and resolve damage or disaster in your area</p>
+    </div>
+
+    <div class="container">
+
+        <h3 class="section-title">📝 Submit Damage or Disaster Report</h3>
+
+        <form action="/report" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Issue Title</label>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter the issue title"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Describe the Issue</label>
+                <textarea
+                    name="description"
+                    placeholder="Describe what happened and provide useful details"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Issue Type</label>
+
+                <select name="issue_type">
+                    <option value="Disaster">🌪️ Disaster</option>
+                    <option value="Manmade">🏗️ Manmade</option>
+                    <option value="Public Property">🏙️ Public Property</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter the location"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Upload Image</label>
+
+                <div class="file-box">
+                    <input type="file" name="image">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                🚀 Submit Report
+            </button>
+
+        </form>
+
+        <a href="/logout" class="logout">
+            Logout
+        </a>
+
+    </div>
+
+</body>
+</html>
+
