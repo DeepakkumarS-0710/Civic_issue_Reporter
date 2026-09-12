@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         * {
@@ -11,267 +12,211 @@
 
         body {
             margin: 0;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            width: 100%;
+            background: linear-gradient(135deg, #10172f, #302052, #172b4d);
+            color: white;
+            padding: 3%;
+        }
+
+        .dashboard {
+            width: 96%;
+            margin: auto;
         }
 
         .header {
-            width: 100%;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 2% 5%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 3%;
+            padding: 3%;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+            backdrop-filter: blur(12px);
+            margin-bottom: 3%;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 2%;
+            gap: 4%;
         }
 
-        .header h2 {
+        .header h1 {
             margin: 0;
-            font-size: 2em;
+            color: #f5d0fe;
+            font-size: 190%;
         }
 
         .header p {
-            margin: 2% 0 0;
-            opacity: 0.85;
-            font-size: 1em;
+            margin-bottom: 0;
+            color: #ddd6fe;
         }
 
         .logout {
+            padding: 2.5% 4%;
+            border-radius: 5%;
             text-decoration: none;
-            background-color: #dc3545;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
             color: white;
-            padding: 1% 2%;
-            border-radius: 0.5em;
             font-weight: bold;
             white-space: nowrap;
         }
 
-        .logout:hover {
-            background-color: #b02a37;
-        }
-
-        .dashboard {
-            width: 90%;
-            margin: 0 auto;
-            padding: 3% 0;
-        }
-
-        .summary {
-            width: 100%;
+        .stats {
             display: flex;
-            gap: 2%;
+            gap: 3%;
             margin-bottom: 3%;
-            flex-wrap: wrap;
         }
 
-        .summary-box {
-            background-color: white;
-            padding: 2%;
-            border-radius: 1em;
-            box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
-            flex: 1 1 30%;
-            min-width: 30%;
+        .stat-card {
+            flex: 1;
+            padding: 3%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5%;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
         }
 
-        .summary-box h3 {
-            margin: 0 0 5%;
-            color: #666;
-            font-size: 1em;
-        }
-
-        .summary-box p {
+        .stat-card h2 {
             margin: 0;
-            font-size: 2em;
-            font-weight: bold;
-            color: #1e3c72;
+            font-size: 180%;
+            color: #f5d0fe;
         }
 
-        .table-container {
+        .stat-card p {
+            margin-bottom: 0;
+            color: #ddd6fe;
+        }
+
+        .table-card {
             width: 100%;
-            background-color: white;
-            border-radius: 1em;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 3%;
             padding: 2%;
-            box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.2);
+            backdrop-filter: blur(12px);
             overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 850px;
         }
 
         th {
-            background-color: #1e3c72;
-            color: white;
-            padding: 1.2%;
+            padding: 2%;
+            background: rgba(139, 92, 246, 0.3);
+            color: #f5d0fe;
             text-align: center;
-            font-size: 1em;
         }
 
         td {
-            border-bottom: 0.1em solid #eee;
-            padding: 1.2%;
+            padding: 2%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             text-align: center;
-            font-size: 0.95em;
-            word-break: break-word;
+            color: #f1f5f9;
         }
 
-        tbody tr {
-            transition: 0.2s;
-        }
-
-        tbody tr:hover {
-            background-color: #f0f5ff;
+        tr:hover {
+            background: rgba(255, 255, 255, 0.08);
         }
 
         img {
             width: 100%;
-            max-width: 10em;
+            max-width: 140px;
             height: auto;
-            aspect-ratio: 4 / 3;
+            max-height: 100px;
             object-fit: cover;
-            border-radius: 0.7em;
-            border: 0.15em solid #ddd;
-        }
-
-        .resolved {
-            display: inline-block;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 0.5em 0.9em;
-            border-radius: 2em;
-            font-weight: bold;
-            white-space: nowrap;
+            border-radius: 8%;
+            border: 1px solid rgba(216, 180, 254, 0.5);
         }
 
         .pending {
             display: inline-block;
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 0.5em 0.9em;
-            border-radius: 2em;
+            padding: 2% 5%;
+            border-radius: 20%;
+            background: rgba(251, 191, 36, 0.18);
+            color: #fde68a;
             font-weight: bold;
-            white-space: nowrap;
+        }
+
+        .resolved {
+            display: inline-block;
+            padding: 2% 5%;
+            border-radius: 20%;
+            background: rgba(52, 211, 153, 0.18);
+            color: #a7f3d0;
+            font-weight: bold;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.7em 1em;
+            padding: 3% 5%;
             text-decoration: none;
-            background-color: #007bff;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
             color: white;
-            border-radius: 0.5em;
+            border-radius: 8%;
             font-weight: bold;
-            transition: 0.2s;
+            white-space: nowrap;
         }
 
         .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-0.1em);
-        }
-
-        .resolved-icon {
-            font-size: 1.5em;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
         }
 
         .no-image {
-            color: #888;
-            font-style: italic;
+            color: #cbd5e1;
+            font-size: 90%;
         }
 
-        .empty {
+        .footer {
             text-align: center;
-            padding: 4%;
-            color: #777;
-            font-size: 1em;
+            margin-top: 3%;
+            color: #c4b5fd;
+            font-size: 85%;
         }
 
-        @media (max-width: 60em) {
+        @media (max-width: 700px) {
 
-            .header {
-                padding: 3%;
+            body {
+                padding: 5%;
             }
 
             .dashboard {
-                width: 94%;
+                width: 100%;
             }
-
-            .summary-box {
-                flex: 1 1 45%;
-                min-width: 45%;
-            }
-
-            table {
-                min-width: 100%;
-            }
-
-            th,
-            td {
-                padding: 1%;
-            }
-        }
-
-        @media (max-width: 40em) {
 
             .header {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
+                padding: 7%;
             }
 
-            .header h2 {
-                font-size: 1.5em;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
 
             .logout {
                 width: 100%;
                 text-align: center;
-                padding: 2%;
             }
 
-            .dashboard {
-                width: 94%;
-                padding: 5% 0;
-            }
-
-            .summary {
+            .stats {
                 flex-direction: column;
+                gap: 4%;
             }
 
-            .summary-box {
+            .stat-card {
                 width: 100%;
-                min-width: 100%;
-                padding: 5%;
+                padding: 6%;
             }
 
-            .summary-box p {
-                font-size: 1.8em;
-            }
-
-            .table-container {
+            .table-card {
                 padding: 3%;
-            }
-
-            table {
-                font-size: 0.85em;
-            }
-
-            th,
-            td {
-                padding: 2%;
-            }
-
-            img {
-                max-width: 8em;
-            }
-
-            .btn {
-                padding: 0.6em 0.8em;
-                font-size: 0.85em;
+                border-radius: 5%;
             }
         }
     </style>
@@ -279,49 +224,55 @@
 
 <body>
 
-    <div class="header">
-
-        <div>
-            <h2>🛠️ Admin Dashboard</h2>
-            <p>View and manage public reports</p>
-        </div>
-
-        <a href="/logout" class="logout">Logout</a>
-
-    </div>
-
-
     <div class="dashboard">
 
-        <div class="summary">
+        <div class="header">
 
-            <div class="summary-box">
-                <h3>📋 Total Reports</h3>
-                <p>{{ reports|length }}</p>
-            </div>
+            <div class="header-content">
 
-            <div class="summary-box">
-                <h3>⚠️ Pending Reports</h3>
-                <p>
-                    {{ reports|selectattr(6, 'ne', 'Resolved')|list|length }}
-                </p>
-            </div>
+                <div>
+                    <h1>🛡️ Admin Dashboard</h1>
 
-            <div class="summary-box">
-                <h3>✅ Resolved Reports</h3>
-                <p>
-                    {{ reports|selectattr(6, 'equalto', 'Resolved')|list|length }}
-                </p>
+                    <p>
+                        Welcome Admin! View and manage civic reports.
+                    </p>
+                </div>
+
+                <a href="/logout" class="logout">
+                    🚪 Logout
+                </a>
+
             </div>
 
         </div>
 
 
-        <div class="table-container">
+        <div class="stats">
+
+            <div class="stat-card">
+                <h2>📋</h2>
+                <p>Total Reports</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>⏳</h2>
+                <p>Pending Reports</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>✅</h2>
+                <p>Resolved Reports</p>
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
 
             <table>
 
                 <thead>
+
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
@@ -332,8 +283,8 @@
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
-                </thead>
 
+                </thead>
 
                 <tbody>
 
@@ -341,10 +292,12 @@
 
                     <tr>
 
-                        <td>{{ report[0] }}</td>
+                        <td>
+                            {{ report[0] }}
+                        </td>
 
                         <td>
-                            <strong>{{ report[1] }}</strong>
+                            {{ report[1] }}
                         </td>
 
                         <td>
@@ -383,7 +336,7 @@
                             {% if report[6] == 'Resolved' %}
 
                                 <span class="resolved">
-                                    ✓ Resolved
+                                    ✅ Resolved
                                 </span>
 
                             {% else %}
@@ -404,13 +357,13 @@
                                     href="/resolve/{{ report[0] }}"
                                     class="btn"
                                 >
-                                    Mark as Resolved
+                                    ✔ Resolve
                                 </a>
 
                             {% else %}
 
-                                <span class="resolved-icon">
-                                    ✅
+                                <span class="resolved">
+                                    Done
                                 </span>
 
                             {% endif %}
@@ -421,21 +374,15 @@
 
                     {% endfor %}
 
-
-                    {% if not reports %}
-
-                    <tr>
-                        <td colspan="8" class="empty">
-                            No reports available.
-                        </td>
-                    </tr>
-
-                    {% endif %}
-
                 </tbody>
 
             </table>
 
+        </div>
+
+
+        <div class="footer">
+            Civic Issue Reporter • Making communities better 🌟
         </div>
 
     </div>
