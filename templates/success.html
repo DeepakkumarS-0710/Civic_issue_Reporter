@@ -1,5 +1,169 @@
-venv/
-__pycache__/
-*.pyc
-.env
-instance/
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Submitted</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #102a43, #243b53, #3c1361);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+            color: white;
+        }
+
+        .success-container {
+            width: 90%;
+            max-width: 550px;
+            padding: 9%;
+            text-align: center;
+            border-radius: 6%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 45px rgba(100, 220, 255, 0.25);
+            backdrop-filter: blur(12px);
+        }
+
+        .icon {
+            font-size: 400%;
+            margin-bottom: 5%;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 200%;
+            color: #a7f3d0;
+        }
+
+        .message {
+            margin: 6% 0;
+            line-height: 1.6;
+            font-size: 105%;
+            color: #e0f2fe;
+        }
+
+        .status {
+            width: 100%;
+            padding: 4%;
+            margin: 6% 0;
+            border-radius: 4%;
+            background: rgba(52, 211, 153, 0.15);
+            border: 1px solid rgba(167, 243, 208, 0.4);
+            color: #a7f3d0;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 4%;
+            justify-content: center;
+            margin-top: 7%;
+        }
+
+        .btn {
+            width: 50%;
+            padding: 4%;
+            border-radius: 4%;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            box-shadow: 0 0 18px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(167, 243, 208, 0.5);
+        }
+
+        .logout {
+            background: linear-gradient(90deg, #475569, #334155);
+        }
+
+        .footer {
+            margin-top: 8%;
+            font-size: 80%;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 5%;
+            }
+
+            .success-container {
+                width: 100%;
+                padding: 10%;
+            }
+
+            .icon {
+                font-size: 300%;
+            }
+
+            h1 {
+                font-size: 170%;
+            }
+
+            .message {
+                font-size: 95%;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-container">
+
+        <div class="icon">🎉✨</div>
+
+        <h1>Report Submitted!</h1>
+
+        <p class="message">
+            Your civic issue has been successfully submitted.
+            Thank you for helping make your community safer and better.
+        </p>
+
+        <div class="status">
+            ✅ Report received successfully
+        </div>
+
+        <div class="buttons">
+
+            <a href="/report" class="btn">
+                📝 Submit Another
+            </a>
+
+            <a href="/logout" class="btn logout">
+                🚪 Logout
+            </a>
+
+        </div>
+
+        <div class="footer">
+            Every report can make a difference 🌟
+        </div>
+
+    </div>
+
+</body>
+</html>
