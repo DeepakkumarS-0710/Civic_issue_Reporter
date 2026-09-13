@@ -1,9 +1,10 @@
-\<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login - Civic Issue Reporter</title>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Civic Issue Reporter</title>
 
     <style>
         * {
@@ -13,49 +14,51 @@
         body {
             margin: 0;
             min-height: 100vh;
+            padding: 5%;
             font-family: Arial, sans-serif;
+            color: white;
             background: linear-gradient(135deg, #1b1b3a, #3d2b56, #16213e);
+
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            padding: 5%;
         }
 
         .login-container {
-            width: 90%;
+            width: 100%;
             max-width: 450px;
+            padding: 8%;
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5%;
-            padding: 8%;
+            border-radius: 20px;
             box-shadow: 0 0 40px rgba(180, 100, 255, 0.35);
             backdrop-filter: blur(12px);
         }
 
         .logo {
             text-align: center;
-            font-size: 250%;
-            margin-bottom: 2%;
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            text-align: center;
             margin: 0;
-            font-size: 180%;
+            text-align: center;
+            font-size: 28px;
             color: #f5d0fe;
         }
 
         .subtitle {
+            margin: 12px 0 25px;
             text-align: center;
             color: #ddd6fe;
-            font-size: 90%;
-            margin: 4% 0 8%;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         label {
             display: block;
-            margin-bottom: 2%;
+            margin-bottom: 8px;
             color: #f3e8ff;
             font-weight: bold;
         }
@@ -64,12 +67,12 @@
         input[type="password"] {
             width: 100%;
             padding: 4%;
-            margin-bottom: 6%;
+            margin-bottom: 20px;
             border: none;
-            border-radius: 4%;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.9);
             color: #222;
-            font-size: 100%;
+            font-size: 16px;
             outline: none;
         }
 
@@ -78,21 +81,21 @@
         }
 
         .role-title {
-            margin-bottom: 3%;
+            margin-bottom: 10px;
         }
 
         .roles {
             display: flex;
             justify-content: space-between;
             gap: 4%;
-            margin-bottom: 7%;
+            margin-bottom: 25px;
         }
 
         .role-option {
             width: 50%;
             padding: 4%;
             text-align: center;
-            border-radius: 4%;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.25);
             cursor: pointer;
@@ -103,20 +106,19 @@
         }
 
         .role-option input {
-            margin-right: 3%;
+            margin-right: 6px;
         }
 
         button {
             width: 100%;
             padding: 4%;
             border: none;
-            border-radius: 4%;
+            border-radius: 10px;
             background: linear-gradient(90deg, #a855f7, #ec4899);
             color: white;
-            font-size: 105%;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(236, 72, 153, 0.35);
         }
 
         button:hover {
@@ -125,9 +127,9 @@
         }
 
         .footer {
+            margin-top: 25px;
             text-align: center;
-            margin-top: 7%;
-            font-size: 80%;
+            font-size: 13px;
             color: #ddd6fe;
         }
 
@@ -140,15 +142,19 @@
             .login-container {
                 width: 100%;
                 padding: 8%;
-                border-radius: 6%;
+                border-radius: 16px;
             }
 
             h1 {
-                font-size: 160%;
+                font-size: 24px;
             }
 
             .logo {
-                font-size: 220%;
+                font-size: 35px;
+            }
+
+            .subtitle {
+                font-size: 14px;
             }
 
             .roles {
@@ -159,6 +165,17 @@
                 width: 100%;
             }
         }
+
+        @media (max-width: 350px) {
+
+            h1 {
+                font-size: 21px;
+            }
+
+            .login-container {
+                padding: 7%;
+            }
+        }
     </style>
 </head>
 
@@ -166,7 +183,7 @@
 
     <div class="login-container">
 
-        <div class="logo">🏛️✨</div>
+        <div class="logo">Civic Reporter</div>
 
         <h1>Civic Issue Reporter</h1>
 
@@ -176,7 +193,7 @@
 
         <form method="POST" action="/login">
 
-            <label for="email">📧 Email</label>
+            <label for="email">Email</label>
 
             <input
                 type="email"
@@ -186,7 +203,7 @@
                 required
             >
 
-            <label for="password">🔐 Password</label>
+            <label for="password">Password</label>
 
             <input
                 type="password"
@@ -196,7 +213,7 @@
                 required
             >
 
-            <label class="role-title">👤 Select Role</label>
+            <label class="role-title">Select Role</label>
 
             <div class="roles">
 
@@ -222,13 +239,13 @@
             </div>
 
             <button type="submit">
-                🚀 Login
+                Login
             </button>
 
         </form>
 
         <div class="footer">
-            Together, let's make our community better 🌟
+            Together, let's make our community better.
         </div>
 
     </div>

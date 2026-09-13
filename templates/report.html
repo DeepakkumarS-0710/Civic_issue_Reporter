@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Report an Issue</title>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Issue</title>
 
     <style>
         * {
@@ -13,54 +14,59 @@
         body {
             margin: 0;
             min-height: 100vh;
+            padding: 30px 20px;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #17153b, #39245f, #102a43);
             color: white;
-            padding: 4%;
         }
 
         .page {
-            width: 92%;
+            width: 100%;
             max-width: 800px;
             margin: auto;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 4%;
+            margin-bottom: 30px;
         }
 
         .header-icon {
-            font-size: 280%;
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            margin: 1% 0;
-            font-size: 200%;
+            margin: 10px 0;
+            font-size: 30px;
             color: #f5d0fe;
         }
 
         .header p {
+            margin: 0 auto;
+            max-width: 650px;
             color: #ddd6fe;
-            font-size: 100%;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         .report-card {
+            width: 100%;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4%;
-            padding: 6%;
+            border-radius: 20px;
             box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
             backdrop-filter: blur(12px);
         }
 
         .form-group {
-            margin-bottom: 5%;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
-            margin-bottom: 2%;
+            margin-bottom: 8px;
             font-weight: bold;
             color: #f3e8ff;
         }
@@ -69,12 +75,12 @@
         textarea,
         select {
             width: 100%;
-            padding: 3.5%;
+            padding: 14px;
             border: none;
-            border-radius: 3%;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.95);
             color: #222;
-            font-size: 100%;
+            font-size: 16px;
             outline: none;
         }
 
@@ -91,9 +97,9 @@
 
         .file-box {
             width: 100%;
-            padding: 4%;
+            padding: 20px;
             border: 2px dashed rgba(216, 180, 254, 0.7);
-            border-radius: 4%;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.08);
         }
 
@@ -104,19 +110,19 @@
 
         .hint {
             display: block;
-            margin-top: 2%;
+            margin-top: 10px;
             color: #c4b5fd;
-            font-size: 80%;
+            font-size: 13px;
         }
 
         button {
             width: 100%;
-            padding: 4%;
+            padding: 14px;
             border: none;
-            border-radius: 4%;
+            border-radius: 10px;
             background: linear-gradient(90deg, #8b5cf6, #ec4899);
             color: white;
-            font-size: 105%;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 0 20px rgba(236, 72, 153, 0.35);
@@ -129,7 +135,7 @@
 
         .logout-area {
             text-align: center;
-            margin-top: 4%;
+            margin-top: 25px;
         }
 
         .logout {
@@ -142,31 +148,68 @@
             color: #f5d0fe;
         }
 
+        /* Mobile screens */
         @media (max-width: 600px) {
 
             body {
-                padding: 5%;
+                padding: 20px 15px;
             }
 
-            .page {
-                width: 100%;
-            }
-
-            .report-card {
-                padding: 8%;
-                border-radius: 6%;
-            }
-
-            h1 {
-                font-size: 160%;
+            .header {
+                margin-bottom: 25px;
             }
 
             .header-icon {
-                font-size: 230%;
+                font-size: 35px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .report-card {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
             }
 
             textarea {
                 min-height: 120px;
+            }
+
+            .file-box {
+                padding: 15px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 350px) {
+
+            body {
+                padding: 15px 10px;
+            }
+
+            .report-card {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 21px;
+            }
+
+            input[type="text"],
+            textarea,
+            select,
+            button {
+                font-size: 14px;
+                padding: 12px;
             }
         }
     </style>
@@ -179,7 +222,7 @@
         <div class="header">
 
             <div class="header-icon">
-                🏛️✨
+                Civic Reporter
             </div>
 
             <h1>Report a Civic Issue</h1>
@@ -191,6 +234,7 @@
 
         </div>
 
+
         <div class="report-card">
 
             <form action="/report" method="post" enctype="multipart/form-data">
@@ -198,7 +242,7 @@
                 <div class="form-group">
 
                     <label for="title">
-                        📌 Issue Title
+                        Issue Title
                     </label>
 
                     <input
@@ -215,7 +259,7 @@
                 <div class="form-group">
 
                     <label for="description">
-                        📝 Description
+                        Description
                     </label>
 
                     <textarea
@@ -231,21 +275,21 @@
                 <div class="form-group">
 
                     <label for="issue_type">
-                        ⚠️ Issue Type
+                        Issue Type
                     </label>
 
                     <select id="issue_type" name="issue_type">
 
                         <option value="Disaster">
-                            🌊 Disaster
+                            Disaster
                         </option>
 
                         <option value="Manmade">
-                            🏗️ Manmade
+                            Manmade
                         </option>
 
                         <option value="Public Property">
-                            🏛️ Public Property
+                            Public Property
                         </option>
 
                     </select>
@@ -256,7 +300,7 @@
                 <div class="form-group">
 
                     <label for="location">
-                        📍 Location
+                        Location
                     </label>
 
                     <input
@@ -273,7 +317,7 @@
                 <div class="form-group">
 
                     <label for="image">
-                        📷 Upload Image
+                        Upload Image
                     </label>
 
                     <div class="file-box">
@@ -295,17 +339,18 @@
 
 
                 <button type="submit">
-                    🚀 Submit Report
+                    Submit Report
                 </button>
 
             </form>
 
         </div>
 
+
         <div class="logout-area">
 
             <a href="/logout" class="logout">
-                🚪 Logout
+                Logout
             </a>
 
         </div>
@@ -314,3 +359,4 @@
 
 </body>
 </html>
+

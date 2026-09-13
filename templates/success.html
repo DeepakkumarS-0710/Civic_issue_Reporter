@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Report Submitted</title>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Submitted</title>
 
     <style>
         * {
@@ -13,21 +15,22 @@
         body {
             margin: 0;
             min-height: 100vh;
+            padding: 20px;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #102a43, #243b53, #3c1361);
+            color: white;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 5%;
-            color: white;
         }
 
         .success-container {
-            width: 90%;
+            width: 100%;
             max-width: 550px;
-            padding: 9%;
+            padding: 45px;
             text-align: center;
-            border-radius: 6%;
+            border-radius: 20px;
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 45px rgba(100, 220, 255, 0.25);
@@ -35,28 +38,28 @@
         }
 
         .icon {
-            font-size: 400%;
-            margin-bottom: 5%;
+            font-size: 55px;
+            margin-bottom: 20px;
         }
 
         h1 {
             margin: 0;
-            font-size: 200%;
+            font-size: 30px;
             color: #a7f3d0;
         }
 
         .message {
-            margin: 6% 0;
+            margin: 25px 0;
             line-height: 1.6;
-            font-size: 105%;
+            font-size: 16px;
             color: #e0f2fe;
         }
 
         .status {
             width: 100%;
-            padding: 4%;
-            margin: 6% 0;
-            border-radius: 4%;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 10px;
             background: rgba(52, 211, 153, 0.15);
             border: 1px solid rgba(167, 243, 208, 0.4);
             color: #a7f3d0;
@@ -65,15 +68,15 @@
 
         .buttons {
             display: flex;
-            gap: 4%;
+            gap: 15px;
             justify-content: center;
-            margin-top: 7%;
+            margin-top: 30px;
         }
 
         .btn {
             width: 50%;
-            padding: 4%;
-            border-radius: 4%;
+            padding: 14px;
+            border-radius: 10px;
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -91,32 +94,33 @@
         }
 
         .footer {
-            margin-top: 8%;
-            font-size: 80%;
+            margin-top: 30px;
+            font-size: 13px;
             color: #cbd5e1;
         }
 
+        /* Mobile screens */
         @media (max-width: 600px) {
 
             body {
-                padding: 5%;
+                padding: 15px;
             }
 
             .success-container {
-                width: 100%;
-                padding: 10%;
+                padding: 30px 20px;
+                border-radius: 16px;
             }
 
             .icon {
-                font-size: 300%;
+                font-size: 45px;
             }
 
             h1 {
-                font-size: 170%;
+                font-size: 25px;
             }
 
             .message {
-                font-size: 95%;
+                font-size: 15px;
             }
 
             .buttons {
@@ -127,6 +131,26 @@
                 width: 100%;
             }
         }
+
+        /* Very small mobile screens */
+        @media (max-width: 350px) {
+
+            .success-container {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .message {
+                font-size: 14px;
+            }
+
+            .status {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
@@ -134,7 +158,9 @@
 
     <div class="success-container">
 
-        <div class="icon">🎉✨</div>
+        <div class="icon">
+            Success
+        </div>
 
         <h1>Report Submitted!</h1>
 
@@ -144,26 +170,27 @@
         </p>
 
         <div class="status">
-            ✅ Report received successfully
+            Report received successfully
         </div>
 
         <div class="buttons">
 
             <a href="/report" class="btn">
-                📝 Submit Another
+                Submit Another
             </a>
 
             <a href="/logout" class="btn logout">
-                🚪 Logout
+                Logout
             </a>
 
         </div>
 
         <div class="footer">
-            Every report can make a difference 🌟
+            Every report can make a difference.
         </div>
 
     </div>
 
 </body>
 </html>
+
